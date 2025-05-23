@@ -41,19 +41,19 @@ export default async function TopicPage({
 
   try {
     const contentModule = await import(
-      `@/app/manual/${category}/${topic}/content.tsx`
+      `@/app/manual/${category}/${topic}/page.tsx`
     );
     ContentComponent = contentModule.default;
   } catch (error) {
     console.error(
-      `app/manual/[category]/[topic]/page.tsx: content.tsx not found for topic: ${topic}`,
+      `app/manual/[category]/[topic]/page.tsx: page.tsx not found for topic: ${topic}`,
       error
     );
   }
 
   return (
     <div>
-      <Heading title={`${categoryTitle} - ${topicTitle}`} />
+      <Heading title={`${topicTitle}`} />
       {ContentComponent ? (
         <ContentComponent />
       ) : (
